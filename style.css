@@ -1,0 +1,84 @@
+body{
+  background:#b3e3ff;
+}/*不用“.”因為body在HTML本身就存在，id用#，class用.*/
+.icon{
+  position:fixed;/*讓這個div可以按照指令移動*/
+  width:75px;
+  height:75px;
+  background:linear-gradient(#ff8a05 0%,#fae17d 80% );/*漸層效果*/
+  top:50%;
+  left:50%;
+  border-radius:10px;/*讓方形圓滑*/
+  box-shadow:10px 12px 20px rgba(0,0,0,0.3);/*影子和其顏色，順序：左右，上下，模糊，色票*/
+  transform:translate(-50%,-50%);/*數據讓icon置中,調整位置,雖然top和left可以調整。但是是以方塊左上角為中心，transform則是以方塊中心為主，可以做到真正置中。後面加上rotate(45deg) scaley(3)會有其他效果哦！*/
+  animation-name:icon;
+  animation-duration:4s;
+  animation-iteration-count:infinite;/*重複移動*/
+  /*animation-direction:reverse;倒播*/
+  animation-direction:alternate;/*我去了又回來了*/
+}
+@keyframes icon{
+  0%{left:50%;top:50%;}
+  10%{left:60%; height:30%;}
+  45%{left:40%;top:40%;}
+  100%{left:80%;top:80%;}
+}
+.water{
+  position:absolute;/*讓水可以隨著icon移動*/
+  width:75px;
+  height:0px;
+  bottom:0;
+  background:rgba(0,190,177,0.4)/*rgba的a是透明度*/;
+  
+}
+.wave1{
+  height:22px;
+  border-bottom-left-radius:10px;/*讓水圓滑*/
+  border-bottom-right-radius:10px;
+  border-top-left-radius:100% 20px;
+  border-top-right-radius:100% 5px;
+}
+.wave2{
+  height:25px;
+  border-bottom-left-radius:10px;/*讓水圓滑*/
+  border-bottom-right-radius:10px;
+  border-top-left-radius:100% 5px;
+  border-top-right-radius:100% 20px;
+}
+.wave3{
+  height:28px;
+  border-bottom-left-radius:20px;/*讓水圓滑*/
+  border-bottom-right-radius:20px;
+  border-top-left-radius:100% 15px;
+  border-top-right-radius:100% 5px;
+}
+.boat{
+  position:absolute;/*船可以隨著icon移動*/
+  width:50px;
+  height:15px;
+  background:#b84416;
+  left:50%;
+  bottom:10px;
+  transform:translate(-50%,-50%);
+  border-bottom-left-radius:40px;
+  border-bottom-right-radius:40px;
+}
+.sail1{
+  position:absolute;
+  right:16px;
+  top:1px;
+  width: 0;
+height: 0;
+border-style: solid;
+border-width: 40px 0 0 20px;
+border-color: transparent transparent transparent #ffffff;
+}
+.sail2{
+  position:absolute;
+  left:18px;
+  width: 0;
+height: 0;
+border-style: solid;
+border-width: 0 0 40px 20px;
+border-color: transparent transparent #ffffff transparent;
+}
